@@ -1,0 +1,19 @@
+{
+  "name": "布拉格互動行程 App",
+  "short_name": "布拉格行程",
+  "description": "可在手機開啟、編輯每日行程與新增景點的布拉格旅行地圖。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f2e8",
+  "theme_color": "#24333f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

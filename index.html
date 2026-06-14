@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#24333f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="布拉格行程" />
+    <title>布拉格互動行程 App</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <p class="eyebrow">PRAGUE TRIP PLANNER</p>
+          <h1>布拉格互動行程</h1>
+        </div>
+        <div class="topbar-metrics" aria-label="行程摘要">
+          <span id="metric-days">4 天</span>
+          <span id="metric-spots">景點載入中</span>
+          <span id="metric-status">尚未標記進度</span>
+        </div>
+        <div class="toolbar" aria-label="工具列">
+          <button class="tool-button" id="add-spot" type="button" title="新增景點">
+            <i data-lucide="map-pin-plus"></i>
+            <span>新增</span>
+          </button>
+          <button class="tool-button" id="edit-toggle" type="button" aria-pressed="false" title="切換快速編輯">
+            <i data-lucide="pencil"></i>
+            <span>編輯</span>
+          </button>
+          <button class="tool-button" id="fit-route" type="button" title="回到今日路線">
+            <i data-lucide="locate-fixed"></i>
+            <span>定位</span>
+          </button>
+          <button class="tool-button" id="reset-progress" type="button" title="重設今日完成進度">
+            <i data-lucide="rotate-ccw"></i>
+            <span>重設</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="planner-pane" aria-label="每日行程">
+          <nav class="day-tabs" id="day-tabs" aria-label="選擇天數"></nav>
+
+          <section class="day-brief" aria-live="polite">
+            <div>
+              <p class="eyebrow" id="day-status">今日主題</p>
+              <h2 id="day-title">行程載入中</h2>
+            </div>
+            <p id="day-note"></p>
+          </section>
+
+          <div class="filter-row" role="tablist" aria-label="篩選行程">
+            <button class="filter-chip is-active" type="button" data-filter="all">全部</button>
+            <button class="filter-chip" type="button" data-filter="booking">預約</button>
+            <button class="filter-chip" type="button" data-filter="transport">交通</button>
+            <button class="filter-chip" type="button" data-filter="warning">提醒</button>
+          </div>
+
+          <section class="timeline" id="timeline" aria-label="行程清單"></section>
+        </section>
+
+        <section class="map-pane" aria-label="旅行地圖">
+          <div id="map"></div>
+          <div class="map-fallback" id="map-fallback">
+            <p>地圖載入中</p>
+          </div>
+          <aside class="detail-drawer" id="detail-drawer" aria-live="polite"></aside>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="spot-modal" hidden>
+      <section class="spot-modal" role="dialog" aria-modal="true" aria-labelledby="spot-modal-title">
+        <form id="spot-form">
+          <input type="hidden" id="spot-id" />
+          <div class="modal-head">
+            <div>
+              <p class="eyebrow" id="spot-modal-mode">新增景點</p>
+              <h2 id="spot-modal-title">行程內容</h2>
+            </div>
+            <button class="icon-button" id="spot-cancel-x" type="button" title="關閉">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span>時間</span>
+              <input id="spot-time" name="time" placeholder="例如 13:30-14:30" required />
+            </label>
+            <label>
+              <span>中文景點名稱</span>
+              <input id="spot-zh" name="zh" placeholder="例如 慕夏博物館" required />
+            </label>
+            <label>
+              <span>英文或當地名稱</span>
+              <input id="spot-en" name="en" placeholder="例如 Mucha Museum" />
+            </label>
+            <label>
+              <span>交通方式</span>
+              <input id="spot-transport" name="transport" placeholder="步行 / 電車 / 地鐵" />
+            </label>
+            <label>
+              <span>交通時間</span>
+              <input id="spot-move-time" name="moveTime" placeholder="例如 10-15 分鐘" />
+            </label>
+            <label>
+              <span>預約或門票</span>
+              <input id="spot-booking" name="booking" placeholder="例如 建議預約" />
+            </label>
+            <label>
+              <span>緯度</span>
+              <input id="spot-lat" name="lat" inputmode="decimal" placeholder="50.08704" />
+            </label>
+            <label>
+              <span>經度</span>
+              <input id="spot-lon" name="lon" inputmode="decimal" placeholder="14.42125" />
+            </label>
+            <label class="span-2">
+              <span>備註</span>
+              <input id="spot-note" name="note" placeholder="補充動線、拍照點、營業時間或提醒" />
+            </label>
+          </div>
+
+          <fieldset class="tag-fieldset">
+            <legend>標籤</legend>
+            <label><input type="checkbox" name="tag" value="booking" /> 預約</label>
+            <label><input type="checkbox" name="tag" value="transport" /> 交通</label>
+            <label><input type="checkbox" name="tag" value="warning" /> 提醒</label>
+          </fieldset>
+
+          <div class="modal-actions">
+            <button class="danger-button" id="spot-delete" type="button">刪除</button>
+            <span class="modal-hint" id="spot-form-hint">內容會儲存在這台裝置的瀏覽器。</span>
+            <button class="secondary-button" id="spot-cancel" type="button">取消</button>
+            <button class="primary-button" type="submit">儲存</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
