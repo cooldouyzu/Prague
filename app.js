@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
   dataVersion: "prague-data-version",
 };
 
-const DATA_VERSION = "2026-06-26-no-seminar-dinner-options";
+const DATA_VERSION = "2026-06-26-pvp-towers-garden-bell";
 
 const tripDays = [
   {
@@ -18,7 +18,7 @@ const tripDays = [
     center: [50.0856, 14.4152],
     zoom: 14,
     note:
-      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；下午依序安排遊船、佩特任山，傍晚慢慢下山經查理大橋回市區。第一天沒有研討會，晚餐以 W Prague 飯店內用餐為主，另保留幾間步行可達的備選餐廳。",
+      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；上午用 Prague Visitor Pass 補老市政廳塔樓與火藥塔登塔，市民會館導覽不排入主線以免撞餐廳與導覽預約。下午依序安排遊船、小城區路過弗爾特巴花園、佩特任山，傍晚慢慢下山回 W Prague 用餐。",
     items: [
       makeItem(
         "d1-01",
@@ -46,27 +46,27 @@ const tripDays = [
       ),
       makeItem(
         "d1-02",
-        "09:20-10:20",
-        "老城廣場 / 天文鐘",
-        "Old Town Square / Astronomical Clock",
+        "09:20-10:05",
+        "老市政廳與天文鐘塔",
+        "Old Town Hall / Astronomical Clock Tower",
         [50.08704, 14.42125],
         "W Prague 出發：Můstek 搭地鐵 A 線到 Staroměstská 後步行，或直接步行",
         "12-22 分鐘",
-        "天文鐘外觀與整點報時，登塔可視現場時間決定",
-        "先看老城廣場與天文鐘，10:20 左右往火藥塔/市民會館方向散步，再接 11:00 Café Imperial 訂位。",
-        ["warning"],
+        "Prague Visitor Pass：塔樓通常不需預約，可走 PVP priority counter；歷史內部導覽才需看場次",
+        "先看老城廣場與天文鐘，再用 Visitor Pass 上塔樓俯瞰廣場。為了不撞 11:00 Café Imperial，建議只登塔，不加老市政廳歷史內部導覽；10:05 左右往火藥塔方向移動。",
+        ["booking", "warning"],
       ),
       makeItem(
         "d1-04",
-        "10:20-10:50",
-        "火藥塔 / 市民會館",
-        "Powder Tower / Municipal House",
+        "10:15-10:50",
+        "火藥塔登塔 / 市民會館外觀",
+        "Powder Gate Tower / Municipal House exterior",
         [50.08758, 14.42886],
         "步行",
         "8-12 分鐘",
-        "以外觀拍照為主，若登塔需另排時間",
-        "從老城廣場往 Café Imperial 方向會經過火藥塔與市民會館，適合做成 30 分鐘外觀拍照段，10:50 左右往餐廳移動。",
-        ["warning"],
+        "火藥塔通常不需預約；7/1 市民會館英文導覽 13:00、14:30、16:00、17:00，會撞既定行程，不排入主線",
+        "火藥塔改成短登塔，抓 20-35 分鐘。市民會館只看外觀或順手看大廳/咖啡館；若想參加導覽，需要犧牲 13:00 克萊門特學院、遊船或佩特任山其中一段，不建議當天硬排。",
+        ["booking", "warning"],
       ),
       makeItem(
         "d1-05",
@@ -105,15 +105,27 @@ const tripDays = [
         ["transport", "booking"],
       ),
       makeItem(
+        "d1-vrtba",
+        "15:40-15:50",
+        "弗爾特巴花園路過快看",
+        "Vrtba Garden / Vrtbovská zahrada",
+        [50.0873, 14.4034],
+        "遊船後往小城區移動，經 Karmelitská 一帶路過",
+        "從碼頭約 15-20 分鐘",
+        "Visitor Pass 可用；通常不需預約",
+        "只排 10 分鐘瞄一眼，不進行完整參觀。若現場排隊或時間落後，直接跳過上佩特任山，避免壓縮傍晚下山與晚餐。",
+        ["transport", "booking", "warning"],
+      ),
+      makeItem(
         "d1-08",
-        "15:25-17:45",
+        "15:50-17:45",
         "佩特任山 / 佩特任瞭望塔",
         "Petřín Hill / Petřín Lookout Tower",
         [50.08352, 14.3951],
-        "從碼頭前往 Malostranské náměstí，搭 22/23 號電車到 Pohořelec，再步行至佩特任山",
-        "30-40 分鐘",
+        "從弗爾特巴花園/小城區往 Újezd 或 Pohořelec 方向上佩特任山；纜車若未恢復，以電車加步行為主",
+        "25-45 分鐘",
         "佩特任纜車仍可能停駛，7/1 出發前再確認",
-        "官方資訊僅表示纜車預計 2026 夏季恢復，7/1 不保證營運，因此以 Pohořelec 電車加步行為主。17:45 左右開始下山，較能穩定銜接晚餐。",
+        "加入弗爾特巴花園快看後，佩特任山時間略縮短；重點放在瞭望塔外觀、山上視角與拍照。若纜車未恢復，建議搭 22/23 號電車到 Pohořelec 再步行，17:45 左右開始下山。",
         ["transport", "warning"],
       ),
       makeItem(
@@ -188,7 +200,7 @@ const tripDays = [
     center: [50.0902, 14.4005],
     zoom: 15,
     note:
-      "早上從 W Prague 出發，先走到 Můstek 搭地鐵 A 線，再轉 22 號電車上山到 Pražský hrad，減少爬坡。城堡內景點密集，動線整體通順。",
+      "早上從 W Prague 出發，先走到 Můstek 搭地鐵 A 線，再轉 22 號電車上山到 Pražský hrad，減少爬坡。聖維特主教堂可用城堡主線/Visitor Pass；南塔是另計的觀景塔票，北塔不作一般登塔景點。BRICK'S 18:30 已訂位，傍晚只在小城區順路看聖尼古拉鐘樓外觀。",
     items: [
       makeItem(
         "d2-00",
@@ -210,8 +222,8 @@ const tripDays = [
         [50.0909, 14.40052],
         "Pražský hrad 站下車後步行入場",
         "8-15 分鐘",
-        "城堡套票 / 教堂入場",
-        "重點看慕夏彩繪玻璃與聖約翰之墓，旺季安檢需預留時間。",
+        "城堡套票 / Visitor Pass；南塔觀景需另付費或使用 Pass 折扣",
+        "重點看慕夏彩繪玻璃與聖約翰之墓，旺季安檢需預留時間。聖維特大教堂主體屬城堡主線；Great South Tower 南塔是單獨觀景塔票，官方價目表列成人 200 CZK、優惠 150 CZK、家庭 500 CZK，Prague Visitor Pass 頁面標示為折扣而非免費。北塔沒有列為一般遊客可登塔景點，不排入。",
         ["transport", "booking", "warning"],
       ),
       makeItem(
@@ -297,6 +309,18 @@ const tripDays = [
         "可現場購票",
         "整點鐘琴演奏很有特色，從洛克維茲宮到此需往西走一段。",
         ["transport", "booking"],
+      ),
+      makeItem(
+        "d2-stnicholas",
+        "17:20-17:30",
+        "聖尼古拉鐘樓順路快看",
+        "St Nicholas Bell Tower / Svatomikulášská městská zvonice",
+        [50.0879, 14.4031],
+        "從羅瑞塔下坡往 Malostranské náměstí，再步行前往 BRICK'S",
+        "羅瑞塔到鐘樓約 15-25 分鐘；鐘樓到 BRICK'S 約 10-15 分鐘",
+        "Visitor Pass 可用；通常不需預約",
+        "只排 10 分鐘看外觀/入口，不登塔；若想登塔需 20-30 分鐘，會壓縮 18:30 BRICK'S 訂位緩衝，不建議當天登塔。",
+        ["transport", "booking", "warning"],
       ),
       makeItem(
         "d2-08",
@@ -1296,8 +1320,17 @@ function applyDataMigrations() {
 
     delete state.edits["d1-09"];
     delete state.edits["d1-10"];
+    delete state.edits["d1-02"];
+    delete state.edits["d1-04"];
+    delete state.edits["d1-08"];
+    delete state.edits["d1-vrtba"];
+    delete state.edits["d2-01"];
+    delete state.edits["d2-07"];
+    delete state.edits["d2-stnicholas"];
     delete state.edits["d4-02"];
     delete state.completed["d1-10"];
+    delete state.completed["d1-vrtba"];
+    delete state.completed["d2-stnicholas"];
     delete state.completed["d1-dinner-louvre"];
     delete state.completed["d1-dinner-vytopna"];
     delete state.completed["d1-dinner-kantyna"];
