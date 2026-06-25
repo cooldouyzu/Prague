@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
   dataVersion: "prague-data-version",
 };
 
-const DATA_VERSION = "2026-06-25-w-hotel-dinner-mlynec-lunch";
+const DATA_VERSION = "2026-06-26-no-seminar-dinner-options";
 
 const tripDays = [
   {
@@ -18,7 +18,7 @@ const tripDays = [
     center: [50.0856, 14.4152],
     zoom: 14,
     note:
-      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；下午依序安排遊船、佩特任山、步行經查理大橋，晚餐改回 W Prague 飯店內用餐，19:30 到飯店內 Mancini Ballroom 參加研討會。",
+      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；下午依序安排遊船、佩特任山，傍晚慢慢下山經查理大橋回市區。第一天沒有研討會，晚餐以 W Prague 飯店內用餐為主，另保留幾間步行可達的備選餐廳。",
     items: [
       makeItem(
         "d1-01",
@@ -118,39 +118,63 @@ const tripDays = [
       ),
       makeItem(
         "d1-06",
-        "17:45-18:35",
-        "佩特任山下山 / 經查理大橋回老城",
-        "Petřín -> Charles Bridge -> Old Town",
+        "17:45-19:00",
+        "佩特任山下山 / 慢慢回 W Prague",
+        "Petřín -> Charles Bridge -> W Prague",
         [50.08648, 14.41143],
         "步行",
-        "約 29-45 分鐘",
+        "約 45-75 分鐘",
         "無",
-        "從佩特任山下山後穿過小城區與查理大橋走回老城。地圖估算約 29 分鐘，但考量下坡、拍照與橋上人潮，建議預留 45 分鐘。",
+        "從佩特任山下山後穿過小城區與查理大橋，慢慢走回 W Prague。地圖估算約 29 分鐘，但第一天沒有研討會，建議把拍照、橋上人潮與買水休息都算進去，抓 45-75 分鐘會舒服很多。",
         ["transport", "warning"],
       ),
       makeItem(
         "d1-09",
-        "18:35-19:20",
+        "19:00-晚間",
         "晚餐：W Prague 飯店",
         "Dinner at W Prague Hotel",
-        [50.0824, 14.4261],
+        [50.0821319, 14.4271549],
         "從查理大橋或老城可步行回 W Prague；若想省腳力，從 Staroměstská 搭地鐵 A 線 1 站到 Můstek 再步行",
         "12-25 分鐘",
-        "W Prague 飯店內用餐；建議確認飯店餐廳是否需要訂位",
-        "第一天剛下飛機，且 19:30 要到飯店內 Mancini Ballroom 參加研討會；晚餐安排在 W Prague 飯店最保險。建議 19:20 前結束或先確認可快速用餐的餐廳/酒吧座位。",
+        "主方案：W Prague 飯店內用餐；建議確認 Le Petit Beefbar au Grand Café 或 W Lounge 是否需要訂位",
+        "第一天沒有研討會，最舒服的安排是慢慢回飯店，在 W Prague 內用餐或喝一杯休息。若飯店餐廳客滿或想換口味，可改用下方備選餐廳。",
         ["transport", "booking", "warning"],
       ),
       makeItem(
-        "d1-10",
-        "19:30-晚間",
-        "研討會：Mancini Ballroom",
-        "Seminar at Mancini Ballroom, W Prague",
-        [50.0824, 14.4261],
-        "飯店內移動",
-        "5-10 分鐘",
-        "19:30 固定行程，地點在 W Prague 飯店內 Mancini Ballroom",
-        "建議 19:20 前回到飯店，先整理物品與確認會場樓層。若佩特任山或查理大橋人潮過多，請優先縮短拍照停留，確保準時抵達。",
-        ["booking", "warning"],
+        "d1-dinner-louvre",
+        "備選晚餐",
+        "備選餐廳：Café Louvre",
+        "Café Louvre",
+        [50.0820667, 14.4187313],
+        "從查理大橋回程可先走到 Národní；吃完再步行或搭電車/地鐵回 W Prague",
+        "從查理大橋約 12-18 分鐘；到 W Prague 約 10-15 分鐘",
+        "備選；建議出發前查空位或線上訂位",
+        "地址：Národní 22。經典咖啡館，適合想在回飯店前先坐下來吃晚餐；官方頁面顯示營業到 23:30，仍建議當天再確認。",
+        ["booking", "transport", "warning"],
+      ),
+      makeItem(
+        "d1-dinner-vytopna",
+        "備選晚餐",
+        "備選餐廳：Výtopna",
+        "Výtopna Railway Restaurant",
+        [50.0801481, 14.4285752],
+        "回到瓦茨拉夫廣場後步行前往，離 W Prague 很近",
+        "從 W Prague 約 5-8 分鐘",
+        "備選；熱門時段建議訂位",
+        "地址：Václavské náměstí 56。餐點由模型火車送餐，第一天晚上若想輕鬆有趣、又不想離飯店太遠，這間很方便；官方頁面顯示布拉格店每日 11:00-24:00。",
+        ["booking", "transport", "warning"],
+      ),
+      makeItem(
+        "d1-dinner-kantyna",
+        "備選晚餐",
+        "備選餐廳：Kantýna",
+        "Kantýna",
+        [50.0833836, 14.4287566],
+        "從 W Prague 步行到 Politických vězňů 5",
+        "從 W Prague 約 6-10 分鐘",
+        "備選；適合想吃肉類與捷克風格料理",
+        "地址：Politických vězňů 1511/5。距離飯店近，氣氛較熱鬧；官方頁面顯示週一至週六 11:30-23:00、週日 11:30-22:00。",
+        ["booking", "transport", "warning"],
       ),
     ],
   },
@@ -1271,8 +1295,14 @@ function applyDataMigrations() {
     if (localStorage.getItem(STORAGE_KEYS.dataVersion) === DATA_VERSION) return;
 
     delete state.edits["d1-09"];
+    delete state.edits["d1-10"];
     delete state.edits["d4-02"];
+    delete state.completed["d1-10"];
+    delete state.completed["d1-dinner-louvre"];
+    delete state.completed["d1-dinner-vytopna"];
+    delete state.completed["d1-dinner-kantyna"];
     saveJson(STORAGE_KEYS.edits, state.edits);
+    saveJson(STORAGE_KEYS.completed, state.completed);
     localStorage.setItem(STORAGE_KEYS.dataVersion, DATA_VERSION);
   } catch {
     // If localStorage is unavailable, the base itinerary still renders.
