@@ -2,7 +2,10 @@ const STORAGE_KEYS = {
   completed: "prague-completed",
   edits: "prague-edits",
   customItems: "prague-custom-items",
+  dataVersion: "prague-data-version",
 };
+
+const DATA_VERSION = "2026-06-25-w-hotel-dinner-mlynec-lunch";
 
 const tripDays = [
   {
@@ -15,7 +18,7 @@ const tripDays = [
     center: [50.0856, 14.4152],
     zoom: 14,
     note:
-      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；下午依序安排遊船、佩特任山、步行經查理大橋，19:30 需回到飯店內 Mancini Ballroom 參加研討會。原本 19:15 Restaurant Mlýnec 晚餐會衝突，不建議保留。",
+      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；下午依序安排遊船、佩特任山、步行經查理大橋，晚餐改回 W Prague 飯店內用餐，19:30 到飯店內 Mancini Ballroom 參加研討會。",
     items: [
       makeItem(
         "d1-01",
@@ -128,14 +131,14 @@ const tripDays = [
       makeItem(
         "d1-09",
         "18:35-19:20",
-        "返回 W Prague / 會前簡餐",
-        "Return to W Prague / Light Dinner Buffer",
+        "晚餐：W Prague 飯店",
+        "Dinner at W Prague Hotel",
         [50.0824, 14.4261],
         "從查理大橋或老城可步行回 W Prague；若想省腳力，從 Staroměstská 搭地鐵 A 線 1 站到 Můstek 再步行",
         "12-25 分鐘",
-        "19:30 飯店內研討會前緩衝；原 19:15 Restaurant Mlýnec 晚餐不建議保留",
-        "第一天剛下飛機又有 19:30 研討會，建議把正式晚餐移除，改成飯店附近簡餐、外帶或研討會後視體力補餐。Restaurant Mlýnec 已安排在第四天午餐，比較不衝突。",
-        ["transport", "warning"],
+        "W Prague 飯店內用餐；建議確認飯店餐廳是否需要訂位",
+        "第一天剛下飛機，且 19:30 要到飯店內 Mancini Ballroom 參加研討會；晚餐安排在 W Prague 飯店最保險。建議 19:20 前結束或先確認可快速用餐的餐廳/酒吧座位。",
+        ["transport", "booking", "warning"],
       ),
       makeItem(
         "d1-10",
@@ -357,7 +360,7 @@ const tripDays = [
     center: [50.079, 14.421],
     zoom: 13,
     note:
-      "早上從 W Prague 出發到猶太區，可從 Můstek 搭地鐵 A 線到 Staroměstská 再步行；天氣好也可直接步行。第四天中午已預約 Restaurant Mlýnec，若要取消需在第三天 12:00 前處理，避免 1000 CZK 取消費。",
+      "早上從 W Prague 出發到猶太區，可從 Můstek 搭地鐵 A 線到 Staroměstská 再步行；天氣好也可直接步行。第四天中午已預約 Restaurant Mlýnec，地址 Novotného lávka 9。若要退訂，需在第三天 7/3 中午 12:00 前處理，否則會被刷 1,000 捷克克朗。",
     items: [
       makeItem(
         "d4-00",
@@ -391,7 +394,7 @@ const tripDays = [
         [50.0854101, 14.4135949],
         "從猶太區步行穿過老城到 Novotného lávka，或從 Staroměstská 周邊搭短程電車後步行",
         "15-25 分鐘",
-        "第四天中午午餐已預約完成；若要退訂，需在 7/3 12:00 前取消，否則會被刷 1000 CZK",
+        "第四天中午午餐已預約完成；若要退訂，需在第三天 7/3 12:00 前取消，否則會被刷 1,000 捷克克朗",
         "地址：Novotného lávka 9, 110 00 Staré Město, 捷克。建議 11:35-11:40 離開猶太區，12:00 前抵達。退訂期限是第三天 7/3 中午 12:00 前，請在庫倫洛夫旅行團出發前或前一天晚上先確認。",
         ["booking", "transport", "warning"],
       ),
@@ -472,6 +475,8 @@ const state = {
   edits: readJson(STORAGE_KEYS.edits, {}),
   customItems: readJson(STORAGE_KEYS.customItems, {}),
 };
+
+applyDataMigrations();
 
 let map;
 let markerLayer;
@@ -1259,6 +1264,19 @@ function safeTags(item) {
 
 function saveCustomItems() {
   saveJson(STORAGE_KEYS.customItems, state.customItems);
+}
+
+function applyDataMigrations() {
+  try {
+    if (localStorage.getItem(STORAGE_KEYS.dataVersion) === DATA_VERSION) return;
+
+    delete state.edits["d1-09"];
+    delete state.edits["d4-02"];
+    saveJson(STORAGE_KEYS.edits, state.edits);
+    localStorage.setItem(STORAGE_KEYS.dataVersion, DATA_VERSION);
+  } catch {
+    // If localStorage is unavailable, the base itinerary still renders.
+  }
 }
 
 function timeRank(item) {
