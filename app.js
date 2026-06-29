@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
   dataVersion: "prague-data-version",
 };
 
-const DATA_VERSION = "2026-06-26-pvp-towers-garden-bell";
+const DATA_VERSION = "2026-06-29-day4-agnes-walkin-lunch";
 
 const tripDays = [
   {
@@ -40,8 +40,8 @@ const tripDays = [
         [50.0824, 14.4261],
         "機場 ATM 或 W Prague 附近銀行 ATM；提款時選 CZK 扣款，避免動態貨幣轉換 DCC",
         "5-10 分鐘",
-        "建議：1 人 3,000-4,000 CZK；2 人 5,000-6,000 CZK",
-        "布拉格餐廳與大多數交通可刷卡，現金主要留給小費、小店、公廁、寄物櫃、庫倫洛夫小額消費與緊急備用。Mlýnec 若發生退訂費，通常會刷訂位卡，不需要特地把 1,000 CZK 當成必備現金。",
+        "刷卡優先：1 人 1,500-2,000 CZK；2 人 3,000-4,000 CZK",
+        "布拉格餐廳與大多數交通可刷卡，現金主要留給小費、小店、公廁、寄物櫃、庫倫洛夫小額消費與緊急備用。提款或刷卡時選 CZK，不要選 TWD/USD 的動態貨幣轉換。",
         ["warning"],
       ),
       makeItem(
@@ -402,77 +402,113 @@ const tripDays = [
     id: "day4",
     label: "7/4 第 4 天",
     short: "New Town",
-    title: "猶太區、高堡與新城精華",
-    status: "較悠閒的收尾日",
+    title: "老城藝術、高堡與新城精華",
+    status: "中世紀藝術與新城收尾",
     accent: "#0f8b8d",
     center: [50.079, 14.421],
     zoom: 13,
     note:
-      "早上從 W Prague 出發到猶太區，可從 Můstek 搭地鐵 A 線到 Staroměstská 再步行；天氣好也可直接步行。第四天中午已預約 Restaurant Mlýnec，地址 Novotného lávka 9。若要退訂，需在第三天 7/3 中午 12:00 前處理，否則會被刷 1,000 捷克克朗。",
+      "7/4 是星期六，猶太博物館管理的會堂與老猶太公墓休館，因此早上只看 Josefov 外觀，再參觀聖艾格尼絲修道院。第四天沒有 Prague Visitor Pass：修道院成人票 250 CZK，交通以步行和單程票為主。Mlýnec 已取消，午餐不訂位，從三個順路備案中依現場候位狀況選一間即可。",
     items: [
       makeItem(
         "d4-00",
-        "08:35-09:00",
-        "W Prague 出發：前往猶太區",
-        "W Prague -> Jewish Quarter / Josefov",
+        "09:00-09:25",
+        "W Prague 出發：步行前往 Josefov",
+        "W Prague -> Josefov",
         [50.0824, 14.4261],
-        "步行到 Můstek，搭地鐵 A 線 1 站到 Staroměstská，出站步行到 Josefov；或直接步行穿過老城",
-        "12-22 分鐘",
-        "使用 30 分鐘 PID 票即可，步行則免票",
-        "若要省腳力選地鐵；若想一路看街景，從 W Prague 走到猶太區也很順。",
+        "直接步行穿過老城；想省腳力可從 Můstek 搭地鐵 A 線 1 站到 Staroměstská",
+        "步行約 20-25 分鐘；地鐵約 12-18 分鐘",
+        "第四天無 Visitor Pass；步行免票，搭車可買 30 分鐘 PID 單程票",
+        "建議直接步行，把交通預算留給下午前往高堡。紙本 30 分鐘票 39 CZK，PID Lítačka App 票 36 CZK。",
         ["transport"],
       ),
       makeItem(
         "d4-01",
-        "09:00-12:00",
-        "猶太區",
-        "Jewish Quarter / Josefov",
+        "09:25-09:55",
+        "猶太區外觀散步",
+        "Josefov exterior walk",
         [50.09018, 14.42004],
-        "市區步行或短程電車",
-        "區內步行",
-        "猶太博物館套票",
-        "Josefov 拼法已修正。建議依套票順序參觀梅瑟會堂、西班牙會堂與老猶太公墓。",
+        "沿巴黎大街步行，經老新會堂、西班牙會堂與老猶太公墓外圍",
+        "區內步行約 30 分鐘",
+        "免費看外觀；星期六內部休館",
+        "7/4 是星期六，梅瑟會堂、西班牙會堂、老猶太公墓等猶太博物館景點不開放。這段只看街景與建築外觀，09:55 左右前往聖艾格尼絲修道院。",
+        ["transport", "warning"],
+      ),
+      makeItem(
+        "d4-agnes",
+        "10:00-11:30",
+        "聖艾格尼絲修道院",
+        "Convent of St Agnes of Bohemia / Klášter sv. Anežky České",
+        [50.0922573, 14.4239939],
+        "從西班牙會堂周邊步行前往",
+        "約 5-8 分鐘",
+        "成人 250 CZK，可現場購票，通常不需預約",
+        "星期六 10:00-18:00 開放。重點為哥德式修道院與「波希米亞及中歐中世紀藝術 1200-1550」常設展；建議停留 75-90 分鐘。戶外修道院花園與雕塑區可免費參觀。",
         ["booking"],
       ),
       makeItem(
         "d4-02",
-        "12:00-13:30",
-        "午餐：Restaurant Mlýnec",
-        "Restaurant Mlýnec",
-        [50.0854101, 14.4135949],
-        "從猶太區步行穿過老城到 Novotného lávka，或從 Staroměstská 周邊搭短程電車後步行",
-        "15-25 分鐘",
-        "第四天中午午餐已預約完成；若要退訂，需在第三天 7/3 12:00 前取消，否則會被刷 1,000 捷克克朗",
-        "地址：Novotného lávka 9, 110 00 Staré Město, 捷克。建議 11:35-11:40 離開猶太區，12:00 前抵達。退訂期限是第三天 7/3 中午 12:00 前，請在庫倫洛夫旅行團出發前或前一天晚上先確認。",
-        ["booking", "transport", "warning"],
+        "12:00-13:10",
+        "午餐備案 A：Naše maso",
+        "Naše maso Dlouhá",
+        [50.0912346, 14.4267504],
+        "從聖艾格尼絲修道院步行到 Dlouhá 39",
+        "約 5-8 分鐘",
+        "不訂位；星期六 10:00-22:00",
+        "捷克肉舖兼快速用餐店，可點漢堡、香腸或現場料理，適合想快速吃完繼續行程。座位有限且可能排隊；人太多就改選 Mistral Café 或 Gruzie。",
+        ["transport", "warning"],
+      ),
+      makeItem(
+        "d4-lunch-b-mistral",
+        "12:00-13:10",
+        "午餐備案 B：Mistral Café",
+        "Mistral Café",
+        [50.0883139, 14.4162862],
+        "從聖艾格尼絲修道院穿過 Josefov 步行到 Valentinská 11",
+        "約 10-15 分鐘",
+        "不訂位；星期六約 09:00-18:00",
+        "Google 評分約 4.6，適合早午餐、輕食與咖啡，步調比正式餐廳彈性。現場客滿就換下一個備案，最晚 13:10 離開前往慕夏博物館。",
+        ["transport", "warning"],
+      ),
+      makeItem(
+        "d4-lunch-c-gruzie",
+        "12:00-13:10",
+        "午餐備案 C：Gruzie Restaurant",
+        "Gruzie Restaurant",
+        [50.0910404, 14.4212469],
+        "從聖艾格尼絲修道院步行到 Bílkova 14",
+        "約 6-10 分鐘",
+        "不訂位、現場候位；星期六 12:00-00:00",
+        "Google 評分約 4.6，提供喬治亞料理，適合想吃完整正餐時選擇。這間用餐可能較久，入座時可先告知 13:10 左右需要離開；若候位太長就改 Naše maso。",
+        ["transport", "warning"],
       ),
       makeItem(
         "d4-03",
-        "13:30-14:45",
+        "13:35-14:45",
         "慕夏博物館",
         "Mucha Museum",
         [50.08443, 14.42903],
-        "步行或短程電車",
-        "18-25 分鐘",
+        "從選定的午餐地點步行穿過老城與新城",
+        "約 15-25 分鐘",
         "可提前購票",
-        "從 Restaurant Mlýnec 到慕夏博物館可步行穿過老城與新城，時間充裕可慢慢穿過新城商圈。",
+        "午餐最晚 13:10 左右離開，預留步行與找入口時間。若 Gruzie 用餐延誤，可把慕夏停留縮成 55-60 分鐘，仍要保留前往高堡的交通時間。",
         ["booking"],
       ),
       makeItem(
         "d4-04",
-        "14:45-15:25",
+        "15:10-15:45",
         "高堡區散步",
         "Vyšehrad",
         [50.06425, 14.41958],
-        "地鐵 C 線或電車",
-        "20-25 分鐘",
-        "無",
-        "從 Vyšehrad 站或 Výtoň 一帶進入，先走城牆與河景視角，再接聖伯多祿聖保祿聖殿。",
+        "從慕夏博物館步行到 Muzeum 站，搭地鐵 C 線到 Vyšehrad；也可搭電車至 Výtoň 後步行上山",
+        "約 20-30 分鐘",
+        "第四天無 Visitor Pass，購買 PID 單程票",
+        "從 Vyšehrad 站進入較直接，先走城牆與河景視角，再接聖伯多祿聖保祿聖殿。若選 Výtoň 入口會有較多上坡。",
         ["transport"],
       ),
       makeItem(
         "d4-045",
-        "15:25-16:20",
+        "15:45-16:40",
         "聖伯多祿聖保祿聖殿",
         "Basilica of St. Peter and St. Paul / Bazilika sv. Petra a Pavla",
         [50.06478, 14.41707],
@@ -484,19 +520,19 @@ const tripDays = [
       ),
       makeItem(
         "d4-05",
-        "16:45-17:30",
+        "17:05-17:30",
         "跳舞的房子",
         "Dancing House / Tančící dům",
         [50.07545, 14.41419],
         "步行或電車",
         "15-20 分鐘",
         "無",
-        "從高堡沿河往北，適合拍照後接新城晚餐或採買。",
+        "從高堡搭電車或沿河往北，外觀拍照約 20-25 分鐘即可，接著前往瓦茨拉夫廣場。",
         ["transport"],
       ),
       makeItem(
         "d4-06",
-        "17:30-19:00",
+        "17:45-19:00",
         "瓦茨拉夫廣場 / 國家博物館",
         "Wenceslas Square / National Museum",
         [50.08164, 14.42634],
@@ -1327,10 +1363,25 @@ function applyDataMigrations() {
     delete state.edits["d2-01"];
     delete state.edits["d2-07"];
     delete state.edits["d2-stnicholas"];
+    delete state.edits["d1-01a"];
+    delete state.edits["d4-00"];
+    delete state.edits["d4-01"];
+    delete state.edits["d4-agnes"];
     delete state.edits["d4-02"];
+    delete state.edits["d4-lunch-mistral"];
+    delete state.edits["d4-lunch-gruzie"];
+    delete state.edits["d4-lunch-b-mistral"];
+    delete state.edits["d4-lunch-c-gruzie"];
+    delete state.edits["d4-03"];
+    delete state.edits["d4-04"];
+    delete state.edits["d4-045"];
+    delete state.edits["d4-05"];
+    delete state.edits["d4-06"];
     delete state.completed["d1-10"];
     delete state.completed["d1-vrtba"];
     delete state.completed["d2-stnicholas"];
+    delete state.completed["d4-01"];
+    delete state.completed["d4-02"];
     delete state.completed["d1-dinner-louvre"];
     delete state.completed["d1-dinner-vytopna"];
     delete state.completed["d1-dinner-kantyna"];
