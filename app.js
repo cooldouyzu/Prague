@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
   dataVersion: "prague-data-version",
 };
 
-const DATA_VERSION = "2026-06-29-day4-agnes-walkin-lunch";
+const DATA_VERSION = "2026-06-30-day4-shopping-taxfree";
 
 const tripDays = [
   {
@@ -408,7 +408,7 @@ const tripDays = [
     center: [50.079, 14.421],
     zoom: 13,
     note:
-      "7/4 是星期六，猶太博物館管理的會堂與老猶太公墓休館，因此早上只看 Josefov 外觀，再參觀聖艾格尼絲修道院。第四天沒有 Prague Visitor Pass：修道院成人票 250 CZK，交通以步行和單程票為主。Mlýnec 已取消，午餐不訂位，從三個順路備案中依現場候位狀況選一間即可。",
+      "7/4 是星期六，猶太博物館管理的會堂與老猶太公墓休館，因此早上只看 Josefov 外觀，再參觀聖艾格尼絲修道院。第四天沒有 Prague Visitor Pass：修道院成人票 250 CZK，交通以步行和單程票為主。Mlýnec 已取消，午餐不訂位，從三個順路備案中依現場候位狀況選一間即可。傍晚從跳舞的房子一路安排 Botanicus、Manufaktura 與 PLANET 市區退稅點，最後回到瓦茨拉夫廣場與 W Prague。",
     items: [
       makeItem(
         "d4-00",
@@ -531,15 +531,51 @@ const tripDays = [
         ["transport"],
       ),
       makeItem(
+        "d4-shop-botanicus",
+        "17:55-18:25",
+        "購物：菠丹妮 Botanicus",
+        "Botanicus Praha - Ungelt",
+        [50.0881082, 14.4236587],
+        "從跳舞的房子搭短程電車後步行，或直接沿河與老城步行到 Týn 3/1049",
+        "約 20-30 分鐘",
+        "每日 10:00-19:00；付款前先確認可開 Planet Tax Free 表單",
+        "Botanicus 19:00 關門，因此排在購物第一站。要辦捷克市區預退稅，單一店家同日消費需超過 2,000 CZK（每張表單至少 2,001 CZK）；結帳前出示護照並索取完整 Tax Free 表單與收據，商品先保持未使用。",
+        ["transport", "warning"],
+      ),
+      makeItem(
+        "d4-shop-manufaktura",
+        "18:35-19:00",
+        "購物：蔓菲蘿 Manufaktura",
+        "Manufaktura Melantrichova 17",
+        [50.0858615, 14.4204766],
+        "從 Botanicus 穿過老城廣場步行到 Melantrichova 17",
+        "約 7-10 分鐘",
+        "星期六 10:00-20:00；付款前確認退稅服務商與表單",
+        "這間是老城區較大的 Manufaktura 門市。若要把此筆交給 PLANET，付款前先問店員是否能開 Planet 可受理的捷克 Tax Free 表單；若使用其他退稅公司，需依該公司流程辦理。此店也必須單獨達到每張表單至少 2,001 CZK，不能和 Botanicus 合併門檻。",
+        ["transport", "warning"],
+      ),
+      makeItem(
+        "d4-taxfree-planet",
+        "19:10-19:50",
+        "PLANET 市區預退稅",
+        "PLANET Tax Free - Mestra House / DESIRRED",
+        [50.0825102, 14.4265914],
+        "從 Manufaktura 沿 Melantrichova、Na Můstku 步行到 Václavské náměstí 831/21",
+        "約 8-12 分鐘",
+        "每日 09:00-21:00；市區預退稅服務費約 40 CZK",
+        "攜帶護照、Planet Tax Free 表單、原始收據、未使用商品與本人信用卡（作為保證）。市區領到的是出口驗證前預退稅：離開歐盟時仍須在最後一個歐盟出境點完成海關驗證，並依 Planet 指示在 21 天內交回已驗證表單，否則保證卡可能被追回退款。",
+        ["transport", "warning"],
+      ),
+      makeItem(
         "d4-06",
-        "17:45-19:00",
+        "19:50-20:30",
         "瓦茨拉夫廣場 / 國家博物館",
         "Wenceslas Square / National Museum",
         [50.08164, 14.42634],
-        "步行或電車",
-        "10-15 分鐘",
-        "晚餐自由安排",
-        "新城商圈適合最後採買，也可看國家博物館夜景。",
+        "PLANET 退稅點就在瓦茨拉夫廣場，結束後步行回 W Prague",
+        "廣場散步；回飯店約 3-8 分鐘",
+        "晚餐自由安排；不需再搭車",
+        "完成退稅後在瓦茨拉夫廣場看國家博物館夜景、最後採買或吃晚餐，再步行回 W Prague。若 PLANET 排隊較久，可直接縮短廣場停留，不影響回飯店動線。",
         [],
       ),
     ],
@@ -1376,12 +1412,18 @@ function applyDataMigrations() {
     delete state.edits["d4-04"];
     delete state.edits["d4-045"];
     delete state.edits["d4-05"];
+    delete state.edits["d4-shop-botanicus"];
+    delete state.edits["d4-shop-manufaktura"];
+    delete state.edits["d4-taxfree-planet"];
     delete state.edits["d4-06"];
     delete state.completed["d1-10"];
     delete state.completed["d1-vrtba"];
     delete state.completed["d2-stnicholas"];
     delete state.completed["d4-01"];
     delete state.completed["d4-02"];
+    delete state.completed["d4-shop-botanicus"];
+    delete state.completed["d4-shop-manufaktura"];
+    delete state.completed["d4-taxfree-planet"];
     delete state.completed["d1-dinner-louvre"];
     delete state.completed["d1-dinner-vytopna"];
     delete state.completed["d1-dinner-kantyna"];
