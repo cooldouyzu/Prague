@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
   dataVersion: "prague-data-version",
 };
 
-const DATA_VERSION = "2026-06-30-day4-shopping-taxfree";
+const DATA_VERSION = "2026-06-30-swap-day3-day4-josefov";
 
 const tripDays = [
   {
@@ -339,151 +339,77 @@ const tripDays = [
   {
     id: "day3",
     label: "7/3 第 3 天",
-    short: "Tour",
-    title: "庫倫洛夫一日團",
-    status: "跟團日",
-    accent: "#3a8e5a",
-    center: [49.455, 14.285],
-    zoom: 8,
-    note:
-      "此日為旅行團日：08:00 從 W Prague 飯店出發，行程總長約 9 小時，預計 17:00 左右回到飯店。",
-    items: [
-      makeItem(
-        "d3-00",
-        "07:40-08:00",
-        "W Prague 大廳集合準備",
-        "W Prague hotel lobby",
-        [50.0824, 14.4261],
-        "飯店接送 / 旅行團車",
-        "飯店大廳集合",
-        "08:00 飯店出發",
-        "建議 07:40 前整理好隨身物品、確認護照/票券/水，07:50 前到 W Prague 大廳等候接送。",
-        ["transport", "booking", "warning"],
-      ),
-      makeItem(
-        "d3-01",
-        "08:00",
-        "旅行團從飯店出發",
-        "Hotel pick-up / Departure",
-        [50.0824, 14.4261],
-        "旅行團巴士",
-        "行程總長約 9 小時",
-        "已確認 08:00 從飯店出發",
-        "從 W Prague 直接出發，不需另行前往市區集合點。",
-        ["transport", "booking"],
-      ),
-      makeItem(
-        "d3-02",
-        "08:00-17:00",
-        "庫倫洛夫古城",
-        "Český Krumlov Day Tour",
-        [48.8127, 14.3175],
-        "旅行團巴士",
-        "約 9 小時含來回車程與導覽",
-        "旅行團已含",
-        "跟隨導覽即可，古城石板路多，鞋子以好走為優先。回程預估 17:00 左右抵達 W Prague。",
-        ["transport"],
-      ),
-      makeItem(
-        "d3-03",
-        "約17:00",
-        "返回 W Prague / 自由晚餐",
-        "Return to W Prague / Free dinner",
-        [50.0824, 14.4261],
-        "旅行團巴士",
-        "約 17:00 回飯店",
-        "晚餐自理",
-        "回程時間可能受交通影響，晚餐建議安排飯店附近或可彈性候位的餐廳。",
-        ["warning"],
-      ),
-    ],
-  },
-  {
-    id: "day4",
-    label: "7/4 第 4 天",
-    short: "New Town",
-    title: "老城藝術、高堡與新城精華",
-    status: "中世紀藝術與新城收尾",
+    short: "Josefov",
+    title: "猶太區、高堡與新城精華",
+    status: "猶太文化與新城收尾",
     accent: "#0f8b8d",
     center: [50.079, 14.421],
     zoom: 13,
     note:
-      "7/4 是星期六，猶太博物館管理的會堂與老猶太公墓休館，因此早上只看 Josefov 外觀，再參觀聖艾格尼絲修道院。第四天沒有 Prague Visitor Pass：修道院成人票 250 CZK，交通以步行和單程票為主。Mlýnec 已取消，午餐不訂位，從三個順路備案中依現場候位狀況選一間即可。傍晚從跳舞的房子一路安排 Botanicus、Manufaktura 與 PLANET 市區退稅點，最後回到瓦茨拉夫廣場與 W Prague。",
+      "7/3 是星期五，猶太博物館可入內參觀，暑期開放 09:00-19:00。第三天沒有 Prague Visitor Pass，猶太城成人套票 600 CZK，官方建議先網購以減少排隊。午餐不訂位，依現場狀況選一間順路備案。傍晚依序安排高堡、跳舞的房子、Botanicus、Manufaktura 與 PLANET 市區預退稅，最後回到瓦茨拉夫廣場與 W Prague。",
     items: [
       makeItem(
-        "d4-00",
-        "09:00-09:25",
-        "W Prague 出發：步行前往 Josefov",
+        "d3-00",
+        "08:30-09:00",
+        "W Prague 出發：前往 Josefov",
         "W Prague -> Josefov",
         [50.0824, 14.4261],
-        "直接步行穿過老城；想省腳力可從 Můstek 搭地鐵 A 線 1 站到 Staroměstská",
+        "步行穿過老城；想省腳力可從 Můstek 搭地鐵 A 線 1 站到 Staroměstská",
         "步行約 20-25 分鐘；地鐵約 12-18 分鐘",
-        "第四天無 Visitor Pass；步行免票，搭車可買 30 分鐘 PID 單程票",
-        "建議直接步行，把交通預算留給下午前往高堡。紙本 30 分鐘票 39 CZK，PID Lítačka App 票 36 CZK。",
-        ["transport"],
+        "第三天無 Visitor Pass；步行免票，搭車可買 30 分鐘 PID 單程票",
+        "建議 08:30 從飯店出發，09:00 開門時開始參觀。網路票可直接準備在手機中，並攜帶護照或身分證件。",
+        ["transport", "booking"],
       ),
       makeItem(
-        "d4-01",
-        "09:25-09:55",
-        "猶太區外觀散步",
-        "Josefov exterior walk",
+        "d3-josefov",
+        "09:00-12:00",
+        "猶太區套票路線",
+        "Jewish Quarter / Josefov",
         [50.09018, 14.42004],
-        "沿巴黎大街步行，經老新會堂、西班牙會堂與老猶太公墓外圍",
-        "區內步行約 30 分鐘",
-        "免費看外觀；星期六內部休館",
-        "7/4 是星期六，梅瑟會堂、西班牙會堂、老猶太公墓等猶太博物館景點不開放。這段只看街景與建築外觀，09:55 左右前往聖艾格尼絲修道院。",
-        ["transport", "warning"],
+        "區內全程步行：梅瑟會堂 → 平卡斯會堂 → 老猶太公墓 → 克勞森會堂（時間足夠再看）→ 西班牙會堂",
+        "各館相距約 2-8 分鐘",
+        "成人套票 600 CZK，無須指定時段；建議事先網購",
+        "7/3 星期五正常開放，暑期 09:00-19:00。套票包含梅瑟、平卡斯、老新與西班牙會堂及老猶太公墓；個人票有效 3 天，但每個館只能入場一次。若想把五個主要景點都看細，3 小時會偏緊，優先保留平卡斯會堂、老猶太公墓與西班牙會堂。",
+        ["transport", "booking", "warning"],
       ),
       makeItem(
-        "d4-agnes",
-        "10:00-11:30",
-        "聖艾格尼絲修道院",
-        "Convent of St Agnes of Bohemia / Klášter sv. Anežky České",
-        [50.0922573, 14.4239939],
-        "從西班牙會堂周邊步行前往",
-        "約 5-8 分鐘",
-        "成人 250 CZK，可現場購票，通常不需預約",
-        "星期六 10:00-18:00 開放。重點為哥德式修道院與「波希米亞及中歐中世紀藝術 1200-1550」常設展；建議停留 75-90 分鐘。戶外修道院花園與雕塑區可免費參觀。",
-        ["booking"],
-      ),
-      makeItem(
-        "d4-02",
+        "d3-lunch-a",
         "12:00-13:10",
         "午餐備案 A：Naše maso",
         "Naše maso Dlouhá",
         [50.0912346, 14.4267504],
-        "從聖艾格尼絲修道院步行到 Dlouhá 39",
-        "約 5-8 分鐘",
-        "不訂位；星期六 10:00-22:00",
-        "捷克肉舖兼快速用餐店，可點漢堡、香腸或現場料理，適合想快速吃完繼續行程。座位有限且可能排隊；人太多就改選 Mistral Café 或 Gruzie。",
+        "從西班牙會堂或猶太區東側步行到 Dlouhá 39",
+        "約 6-10 分鐘",
+        "不訂位；星期五 10:00-22:00",
+        "捷克肉舖兼快速用餐店，可點漢堡、香腸或現場料理，適合快速吃完繼續行程。座位有限且可能排隊；人太多就改選 Mistral Café 或 Gruzie。",
         ["transport", "warning"],
       ),
       makeItem(
-        "d4-lunch-b-mistral",
+        "d3-lunch-b-mistral",
         "12:00-13:10",
         "午餐備案 B：Mistral Café",
         "Mistral Café",
         [50.0883139, 14.4162862],
-        "從聖艾格尼絲修道院穿過 Josefov 步行到 Valentinská 11",
-        "約 10-15 分鐘",
-        "不訂位；星期六約 09:00-18:00",
-        "Google 評分約 4.6，適合早午餐、輕食與咖啡，步調比正式餐廳彈性。現場客滿就換下一個備案，最晚 13:10 離開前往慕夏博物館。",
+        "從猶太區步行到 Valentinská 11",
+        "約 6-12 分鐘",
+        "不訂位；星期五約 09:00-18:00",
+        "Google 評分約 4.6，適合早午餐、輕食與咖啡。現場客滿就換下一個備案，最晚 13:10 離開前往慕夏博物館。",
         ["transport", "warning"],
       ),
       makeItem(
-        "d4-lunch-c-gruzie",
+        "d3-lunch-c-gruzie",
         "12:00-13:10",
         "午餐備案 C：Gruzie Restaurant",
         "Gruzie Restaurant",
         [50.0910404, 14.4212469],
-        "從聖艾格尼絲修道院步行到 Bílkova 14",
-        "約 6-10 分鐘",
-        "不訂位、現場候位；星期六 12:00-00:00",
-        "Google 評分約 4.6，提供喬治亞料理，適合想吃完整正餐時選擇。這間用餐可能較久，入座時可先告知 13:10 左右需要離開；若候位太長就改 Naše maso。",
+        "從猶太區步行到 Bílkova 14",
+        "約 3-8 分鐘",
+        "不訂位、現場候位；星期五 12:00-00:00",
+        "Google 評分約 4.6，提供喬治亞料理，適合想吃完整正餐時選擇。用餐可能較久，入座時可先告知 13:10 左右需要離開；若候位太長就改 Naše maso。",
         ["transport", "warning"],
       ),
       makeItem(
-        "d4-03",
+        "d3-mucha",
         "13:35-14:45",
         "慕夏博物館",
         "Mucha Museum",
@@ -491,23 +417,23 @@ const tripDays = [
         "從選定的午餐地點步行穿過老城與新城",
         "約 15-25 分鐘",
         "可提前購票",
-        "午餐最晚 13:10 左右離開，預留步行與找入口時間。若 Gruzie 用餐延誤，可把慕夏停留縮成 55-60 分鐘，仍要保留前往高堡的交通時間。",
+        "午餐最晚 13:10 左右離開，預留步行與找入口時間。若午餐延誤，可把慕夏停留縮成 55-60 分鐘，仍要保留前往高堡的交通時間。",
         ["booking"],
       ),
       makeItem(
-        "d4-04",
+        "d3-vysehrad",
         "15:10-15:45",
         "高堡區散步",
         "Vyšehrad",
         [50.06425, 14.41958],
         "從慕夏博物館步行到 Muzeum 站，搭地鐵 C 線到 Vyšehrad；也可搭電車至 Výtoň 後步行上山",
         "約 20-30 分鐘",
-        "第四天無 Visitor Pass，購買 PID 單程票",
+        "第三天無 Visitor Pass，購買 PID 單程票",
         "從 Vyšehrad 站進入較直接，先走城牆與河景視角，再接聖伯多祿聖保祿聖殿。若選 Výtoň 入口會有較多上坡。",
         ["transport"],
       ),
       makeItem(
-        "d4-045",
+        "d3-basilica",
         "15:45-16:40",
         "聖伯多祿聖保祿聖殿",
         "Basilica of St. Peter and St. Paul / Bazilika sv. Petra a Pavla",
@@ -519,7 +445,7 @@ const tripDays = [
         ["booking", "warning"],
       ),
       makeItem(
-        "d4-05",
+        "d3-dancing",
         "17:05-17:30",
         "跳舞的房子",
         "Dancing House / Tančící dům",
@@ -527,35 +453,35 @@ const tripDays = [
         "步行或電車",
         "15-20 分鐘",
         "無",
-        "從高堡搭電車或沿河往北，外觀拍照約 20-25 分鐘即可，接著前往瓦茨拉夫廣場。",
+        "從高堡搭電車或沿河往北，外觀拍照約 20-25 分鐘即可，接著前往老城購物。",
         ["transport"],
       ),
       makeItem(
-        "d4-shop-botanicus",
+        "d3-shop-botanicus",
         "17:55-18:25",
         "購物：菠丹妮 Botanicus",
         "Botanicus Praha - Ungelt",
         [50.0881082, 14.4236587],
-        "從跳舞的房子搭短程電車後步行，或直接沿河與老城步行到 Týn 3/1049",
+        "從跳舞的房子搭短程電車後步行，或沿河與老城步行到 Týn 3/1049",
         "約 20-30 分鐘",
         "每日 10:00-19:00；付款前先確認可開 Planet Tax Free 表單",
         "Botanicus 19:00 關門，因此排在購物第一站。要辦捷克市區預退稅，單一店家同日消費需超過 2,000 CZK（每張表單至少 2,001 CZK）；結帳前出示護照並索取完整 Tax Free 表單與收據，商品先保持未使用。",
         ["transport", "warning"],
       ),
       makeItem(
-        "d4-shop-manufaktura",
+        "d3-shop-manufaktura",
         "18:35-19:00",
         "購物：蔓菲蘿 Manufaktura",
         "Manufaktura Melantrichova 17",
         [50.0858615, 14.4204766],
         "從 Botanicus 穿過老城廣場步行到 Melantrichova 17",
         "約 7-10 分鐘",
-        "星期六 10:00-20:00；付款前確認退稅服務商與表單",
+        "星期五 10:00-20:00；付款前確認退稅服務商與表單",
         "這間是老城區較大的 Manufaktura 門市。若要把此筆交給 PLANET，付款前先問店員是否能開 Planet 可受理的捷克 Tax Free 表單；若使用其他退稅公司，需依該公司流程辦理。此店也必須單獨達到每張表單至少 2,001 CZK，不能和 Botanicus 合併門檻。",
         ["transport", "warning"],
       ),
       makeItem(
-        "d4-taxfree-planet",
+        "d3-taxfree-planet",
         "19:10-19:50",
         "PLANET 市區預退稅",
         "PLANET Tax Free - Mestra House / DESIRRED",
@@ -567,7 +493,7 @@ const tripDays = [
         ["transport", "warning"],
       ),
       makeItem(
-        "d4-06",
+        "d3-wenceslas",
         "19:50-20:30",
         "瓦茨拉夫廣場 / 國家博物館",
         "Wenceslas Square / National Museum",
@@ -577,6 +503,68 @@ const tripDays = [
         "晚餐自由安排；不需再搭車",
         "完成退稅後在瓦茨拉夫廣場看國家博物館夜景、最後採買或吃晚餐，再步行回 W Prague。若 PLANET 排隊較久，可直接縮短廣場停留，不影響回飯店動線。",
         [],
+      ),
+    ],
+  },
+  {
+    id: "day4",
+    label: "7/4 第 4 天",
+    short: "Tour",
+    title: "庫倫洛夫一日團",
+    status: "跟團日",
+    accent: "#3a8e5a",
+    center: [49.455, 14.285],
+    zoom: 8,
+    note:
+      "此日為旅行團日：08:00 從 W Prague 飯店出發，行程總長約 9 小時，預計 17:00 左右回到飯店。",
+    items: [
+      makeItem(
+        "d4-tour-lobby",
+        "07:40-08:00",
+        "W Prague 大廳集合準備",
+        "W Prague hotel lobby",
+        [50.0824, 14.4261],
+        "飯店接送 / 旅行團車",
+        "飯店大廳集合",
+        "08:00 飯店出發",
+        "建議 07:40 前整理好隨身物品、確認護照、票券與水，07:50 前到 W Prague 大廳等候接送。",
+        ["transport", "booking", "warning"],
+      ),
+      makeItem(
+        "d4-tour-depart",
+        "08:00",
+        "旅行團從飯店出發",
+        "Hotel pick-up / Departure",
+        [50.0824, 14.4261],
+        "旅行團巴士",
+        "行程總長約 9 小時",
+        "已確認 08:00 從飯店出發",
+        "從 W Prague 直接出發，不需另行前往市區集合點。",
+        ["transport", "booking"],
+      ),
+      makeItem(
+        "d4-tour-main",
+        "08:00-17:00",
+        "庫倫洛夫古城",
+        "Český Krumlov Day Tour",
+        [48.8127, 14.3175],
+        "旅行團巴士",
+        "約 9 小時含來回車程與導覽",
+        "旅行團已含",
+        "跟隨導覽即可，古城石板路多，鞋子以好走為優先。回程預估 17:00 左右抵達 W Prague。",
+        ["transport"],
+      ),
+      makeItem(
+        "d4-tour-return",
+        "約17:00",
+        "返回 W Prague / 自由晚餐",
+        "Return to W Prague / Free dinner",
+        [50.0824, 14.4261],
+        "旅行團巴士",
+        "約 17:00 回飯店",
+        "晚餐自理",
+        "回程時間可能受交通影響，晚餐建議安排飯店附近或可彈性候位的餐廳。",
+        ["warning"],
       ),
     ],
   },
@@ -1390,6 +1378,11 @@ function applyDataMigrations() {
   try {
     if (localStorage.getItem(STORAGE_KEYS.dataVersion) === DATA_VERSION) return;
 
+    const day3CustomItems = Array.isArray(state.customItems.day3) ? state.customItems.day3 : [];
+    const day4CustomItems = Array.isArray(state.customItems.day4) ? state.customItems.day4 : [];
+    state.customItems.day3 = day4CustomItems;
+    state.customItems.day4 = day3CustomItems;
+
     delete state.edits["d1-09"];
     delete state.edits["d1-10"];
     delete state.edits["d1-02"];
@@ -1416,6 +1409,26 @@ function applyDataMigrations() {
     delete state.edits["d4-shop-manufaktura"];
     delete state.edits["d4-taxfree-planet"];
     delete state.edits["d4-06"];
+    delete state.edits["d3-00"];
+    delete state.edits["d3-01"];
+    delete state.edits["d3-02"];
+    delete state.edits["d3-03"];
+    delete state.edits["d3-josefov"];
+    delete state.edits["d3-lunch-a"];
+    delete state.edits["d3-lunch-b-mistral"];
+    delete state.edits["d3-lunch-c-gruzie"];
+    delete state.edits["d3-mucha"];
+    delete state.edits["d3-vysehrad"];
+    delete state.edits["d3-basilica"];
+    delete state.edits["d3-dancing"];
+    delete state.edits["d3-shop-botanicus"];
+    delete state.edits["d3-shop-manufaktura"];
+    delete state.edits["d3-taxfree-planet"];
+    delete state.edits["d3-wenceslas"];
+    delete state.edits["d4-tour-lobby"];
+    delete state.edits["d4-tour-depart"];
+    delete state.edits["d4-tour-main"];
+    delete state.edits["d4-tour-return"];
     delete state.completed["d1-10"];
     delete state.completed["d1-vrtba"];
     delete state.completed["d2-stnicholas"];
@@ -1424,11 +1437,32 @@ function applyDataMigrations() {
     delete state.completed["d4-shop-botanicus"];
     delete state.completed["d4-shop-manufaktura"];
     delete state.completed["d4-taxfree-planet"];
+    delete state.completed["d3-00"];
+    delete state.completed["d3-01"];
+    delete state.completed["d3-02"];
+    delete state.completed["d3-03"];
+    delete state.completed["d3-josefov"];
+    delete state.completed["d3-lunch-a"];
+    delete state.completed["d3-lunch-b-mistral"];
+    delete state.completed["d3-lunch-c-gruzie"];
+    delete state.completed["d3-mucha"];
+    delete state.completed["d3-vysehrad"];
+    delete state.completed["d3-basilica"];
+    delete state.completed["d3-dancing"];
+    delete state.completed["d3-shop-botanicus"];
+    delete state.completed["d3-shop-manufaktura"];
+    delete state.completed["d3-taxfree-planet"];
+    delete state.completed["d3-wenceslas"];
+    delete state.completed["d4-tour-lobby"];
+    delete state.completed["d4-tour-depart"];
+    delete state.completed["d4-tour-main"];
+    delete state.completed["d4-tour-return"];
     delete state.completed["d1-dinner-louvre"];
     delete state.completed["d1-dinner-vytopna"];
     delete state.completed["d1-dinner-kantyna"];
     saveJson(STORAGE_KEYS.edits, state.edits);
     saveJson(STORAGE_KEYS.completed, state.completed);
+    saveCustomItems();
     localStorage.setItem(STORAGE_KEYS.dataVersion, DATA_VERSION);
   } catch {
     // If localStorage is unavailable, the base itinerary still renders.
