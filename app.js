@@ -3,9 +3,11 @@ const STORAGE_KEYS = {
   edits: "prague-edits",
   customItems: "prague-custom-items",
   dataVersion: "prague-data-version",
+  day34SwapMigration: "prague-migration-day34-swap-v1",
 };
 
-const DATA_VERSION = "2026-06-30-swap-day3-day4-josefov";
+const DAY34_SWAP_VERSION = "2026-06-30-swap-day3-day4-josefov";
+const DATA_VERSION = "2026-07-01-move-petrin-to-day2";
 
 const tripDays = [
   {
@@ -18,7 +20,7 @@ const tripDays = [
     center: [50.0856, 14.4152],
     zoom: 14,
     note:
-      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；上午用 Prague Visitor Pass 補老市政廳塔樓與火藥塔登塔，市民會館導覽不排入主線以免撞餐廳與導覽預約。下午依序安排遊船、小城區路過弗爾特巴花園、佩特任山，傍晚慢慢下山回 W Prague 用餐。",
+      "06:55 抵達後搭乘機場接駁車前往 W Prague 放行李。11:00 Café Imperial、13:00 克萊門特學院導覽為固定預約；上午用 Prague Visitor Pass 補老市政廳塔樓與火藥塔登塔。下午遊船後前往小城區，佩特任山因下雨來不及前往，已移至 7/2 城堡區行程；傍晚經查理大橋慢慢回 W Prague 用餐。",
     items: [
       makeItem(
         "d1-01",
@@ -117,27 +119,15 @@ const tripDays = [
         ["transport", "booking", "warning"],
       ),
       makeItem(
-        "d1-08",
-        "15:50-17:45",
-        "佩特任山 / 佩特任瞭望塔",
-        "Petřín Hill / Petřín Lookout Tower",
-        [50.08352, 14.3951],
-        "從弗爾特巴花園/小城區往 Újezd 或 Pohořelec 方向上佩特任山；纜車若未恢復，以電車加步行為主",
-        "25-45 分鐘",
-        "佩特任纜車仍可能停駛，7/1 出發前再確認",
-        "加入弗爾特巴花園快看後，佩特任山時間略縮短；重點放在瞭望塔外觀、山上視角與拍照。若纜車未恢復，建議搭 22/23 號電車到 Pohořelec 再步行，17:45 左右開始下山。",
-        ["transport", "warning"],
-      ),
-      makeItem(
         "d1-06",
-        "17:45-19:00",
-        "佩特任山下山 / 慢慢回 W Prague",
-        "Petřín -> Charles Bridge -> W Prague",
+        "15:50-19:00",
+        "小城區 / 查理大橋 / 慢慢回 W Prague",
+        "Lesser Town -> Charles Bridge -> W Prague",
         [50.08648, 14.41143],
         "步行",
-        "約 45-75 分鐘",
+        "依雨勢與停留時間彈性調整",
         "無",
-        "從佩特任山下山後穿過小城區與查理大橋，慢慢走回 W Prague。地圖估算約 29 分鐘，但第一天沒有研討會，建議把拍照、橋上人潮與買水休息都算進去，抓 45-75 分鐘會舒服很多。",
+        "佩特任山因雨移至第二天。從弗爾特巴花園周邊穿過小城區與查理大橋，依雨勢決定停留時間，再慢慢走回 W Prague；若雨勢變大，可從 Malostranské náměstí 搭 22/23 號電車，或從 Staroměstská 搭地鐵 A 線回 Můstek。",
         ["transport", "warning"],
       ),
       makeItem(
@@ -200,7 +190,7 @@ const tripDays = [
     center: [50.0902, 14.4005],
     zoom: 15,
     note:
-      "早上從 W Prague 出發，先走到 Můstek 搭地鐵 A 線，再轉 22 號電車上山到 Pražský hrad，減少爬坡。聖維特主教堂可用城堡主線/Visitor Pass；南塔是另計的觀景塔票，北塔不作一般登塔景點。BRICK'S 18:30 已訂位，傍晚只在小城區順路看聖尼古拉鐘樓外觀。",
+      "早上從 W Prague 搭地鐵 A 線轉 22 號電車上山，依序參觀城堡群。第一天因雨錯過的佩特任山改排在羅瑞塔後，從 Strahov 高地步行前往，避開由 Újezd 上坡；纜車目前停駛。洛克維茲宮與羅瑞塔需控制停留時間，17:25 前離開佩特任山，才能保留 BRICK'S 18:30 訂位緩衝。",
     items: [
       makeItem(
         "d2-00",
@@ -276,50 +266,62 @@ const tripDays = [
       ),
       makeItem(
         "d2-05",
-        "13:00-14:10",
+        "13:00-14:00",
         "黃金小巷 / 達利波塔",
         "Golden Lane / Daliborka Tower",
         [50.09113, 14.40512],
         "城堡內步行",
         "5 分鐘以內",
         "城堡套票",
-        "22 號小屋曾與卡夫卡相關，達利波塔適合安排在城堡尾段。",
+        "22 號小屋曾與卡夫卡相關，達利波塔適合安排在城堡尾段。為了補入佩特任山，14:00 前離開；若城堡段落延誤，優先縮短達利波塔停留。",
         ["booking"],
       ),
       makeItem(
         "d2-06",
-        "14:10-15:40",
+        "14:00-15:05",
         "洛克維茲宮",
         "Lobkowicz Palace / Lobkowiczký palác",
         [50.09042, 14.40428],
         "城堡內步行",
         "3-5 分鐘",
         "另購票 / 可預約",
-        "私人博物館收藏豐富，陽台可眺望布拉格市景。",
-        ["booking"],
+        "私人博物館收藏豐富，陽台可眺望布拉格市景。這次停留縮為約 65 分鐘，建議先看最有興趣的展區；若尚未用餐，可在宮內咖啡區快速補充點心，但 15:05 必須離開。",
+        ["booking", "warning"],
       ),
       makeItem(
         "d2-07",
-        "15:40-17:00",
+        "15:20-16:00",
         "羅瑞塔教堂",
         "Loreto / Loreta",
         [50.08988, 14.39188],
         "步行往城堡西側",
         "10-15 分鐘",
         "可現場購票",
-        "整點鐘琴演奏很有特色，從洛克維茲宮到此需往西走一段。",
-        ["transport", "booking"],
+        "整點鐘琴演奏很有特色。為了銜接佩特任山，本次只停留約 40 分鐘；若前面延誤，可改看外觀與整點鐘琴，15:55-16:00 之間離開。",
+        ["transport", "booking", "warning"],
+      ),
+      makeItem(
+        "d2-petrin",
+        "16:00-17:25",
+        "佩特任山 / 佩特任瞭望塔",
+        "Petřín Hill / Petřín Lookout Tower",
+        [50.08352, 14.3951],
+        "從羅瑞塔經 Pohořelec、Strahov 與高地步道前往，避免從 Újezd 向上爬坡",
+        "步行約 20-25 分鐘；塔區停留約 55-60 分鐘",
+        "Prague Visitor Pass 可用；7 月瞭望塔 09:00-19:00，通常不需預約",
+        "佩特任纜車目前因重建停駛，不能依賴纜車。從羅瑞塔走到塔區較接近等高或緩坡；重點安排瞭望塔、城市景觀與拍照。最晚 17:25 開始下山，若前面已延誤到 16:35 後才抵達，縮短塔區停留，不要影響 18:30 晚餐。",
+        ["transport", "booking", "warning"],
       ),
       makeItem(
         "d2-stnicholas",
-        "17:20-17:30",
+        "17:55-18:05",
         "聖尼古拉鐘樓順路快看",
         "St Nicholas Bell Tower / Svatomikulášská městská zvonice",
         [50.0879, 14.4031],
-        "從羅瑞塔下坡往 Malostranské náměstí，再步行前往 BRICK'S",
-        "羅瑞塔到鐘樓約 15-25 分鐘；鐘樓到 BRICK'S 約 10-15 分鐘",
+        "從佩特任瞭望塔沿 Strahov／小城區方向步行下坡至 Malostranské náměstí，再步行前往 BRICK'S",
+        "佩特任塔到鐘樓約 25-35 分鐘；鐘樓到 BRICK'S 約 10-15 分鐘",
         "Visitor Pass 可用；通常不需預約",
-        "只排 10 分鐘看外觀/入口，不登塔；若想登塔需 20-30 分鐘，會壓縮 18:30 BRICK'S 訂位緩衝，不建議當天登塔。",
+        "只排 10 分鐘看外觀，不登塔。18:05 必須離開，步行到 BRICK'S 後約有 10-15 分鐘緩衝；若佩特任下山超過 17:55，直接跳過此站前往餐廳。",
         ["transport", "booking", "warning"],
       ),
       makeItem(
@@ -328,10 +330,10 @@ const tripDays = [
         "晚餐：BRICK'S",
         "BRICK'S | Hergetova Cihelna",
         [50.08876, 14.40957],
-        "步行下山或電車銜接",
-        "25-35 分鐘",
+        "從聖尼古拉鐘樓步行；若跳過鐘樓，從佩特任山下坡後可在 Újezd 接電車到 Malostranské náměstí",
+        "鐘樓步行約 10-15 分鐘",
         "18:30 已訂位完成",
-        "17:00 後留緩衝下山，18:30 前抵達餐廳。餐廳可看查理大橋夜景。",
+        "建議 18:15 前抵達，保留找路與入座緩衝。佩特任山是新增重點，若城堡區延誤，請縮短羅瑞塔或跳過聖尼古拉鐘樓外觀，不要壓縮已訂位的晚餐。",
         ["transport", "booking"],
       ),
     ],
@@ -1376,90 +1378,56 @@ function saveCustomItems() {
 
 function applyDataMigrations() {
   try {
-    if (localStorage.getItem(STORAGE_KEYS.dataVersion) === DATA_VERSION) return;
+    const previousDataVersion = localStorage.getItem(STORAGE_KEYS.dataVersion);
+    if (previousDataVersion === DATA_VERSION) return;
 
-    const day3CustomItems = Array.isArray(state.customItems.day3) ? state.customItems.day3 : [];
-    const day4CustomItems = Array.isArray(state.customItems.day4) ? state.customItems.day4 : [];
-    state.customItems.day3 = day4CustomItems;
-    state.customItems.day4 = day3CustomItems;
+    const day34SwapAlreadyApplied =
+      previousDataVersion === DAY34_SWAP_VERSION ||
+      localStorage.getItem(STORAGE_KEYS.day34SwapMigration) === "done";
 
-    delete state.edits["d1-09"];
-    delete state.edits["d1-10"];
-    delete state.edits["d1-02"];
-    delete state.edits["d1-04"];
-    delete state.edits["d1-08"];
-    delete state.edits["d1-vrtba"];
-    delete state.edits["d2-01"];
-    delete state.edits["d2-07"];
-    delete state.edits["d2-stnicholas"];
-    delete state.edits["d1-01a"];
-    delete state.edits["d4-00"];
-    delete state.edits["d4-01"];
-    delete state.edits["d4-agnes"];
-    delete state.edits["d4-02"];
-    delete state.edits["d4-lunch-mistral"];
-    delete state.edits["d4-lunch-gruzie"];
-    delete state.edits["d4-lunch-b-mistral"];
-    delete state.edits["d4-lunch-c-gruzie"];
-    delete state.edits["d4-03"];
-    delete state.edits["d4-04"];
-    delete state.edits["d4-045"];
-    delete state.edits["d4-05"];
-    delete state.edits["d4-shop-botanicus"];
-    delete state.edits["d4-shop-manufaktura"];
-    delete state.edits["d4-taxfree-planet"];
-    delete state.edits["d4-06"];
-    delete state.edits["d3-00"];
-    delete state.edits["d3-01"];
-    delete state.edits["d3-02"];
-    delete state.edits["d3-03"];
-    delete state.edits["d3-josefov"];
-    delete state.edits["d3-lunch-a"];
-    delete state.edits["d3-lunch-b-mistral"];
-    delete state.edits["d3-lunch-c-gruzie"];
-    delete state.edits["d3-mucha"];
-    delete state.edits["d3-vysehrad"];
-    delete state.edits["d3-basilica"];
-    delete state.edits["d3-dancing"];
-    delete state.edits["d3-shop-botanicus"];
-    delete state.edits["d3-shop-manufaktura"];
-    delete state.edits["d3-taxfree-planet"];
-    delete state.edits["d3-wenceslas"];
-    delete state.edits["d4-tour-lobby"];
-    delete state.edits["d4-tour-depart"];
-    delete state.edits["d4-tour-main"];
-    delete state.edits["d4-tour-return"];
-    delete state.completed["d1-10"];
-    delete state.completed["d1-vrtba"];
-    delete state.completed["d2-stnicholas"];
-    delete state.completed["d4-01"];
-    delete state.completed["d4-02"];
-    delete state.completed["d4-shop-botanicus"];
-    delete state.completed["d4-shop-manufaktura"];
-    delete state.completed["d4-taxfree-planet"];
-    delete state.completed["d3-00"];
-    delete state.completed["d3-01"];
-    delete state.completed["d3-02"];
-    delete state.completed["d3-03"];
-    delete state.completed["d3-josefov"];
-    delete state.completed["d3-lunch-a"];
-    delete state.completed["d3-lunch-b-mistral"];
-    delete state.completed["d3-lunch-c-gruzie"];
-    delete state.completed["d3-mucha"];
-    delete state.completed["d3-vysehrad"];
-    delete state.completed["d3-basilica"];
-    delete state.completed["d3-dancing"];
-    delete state.completed["d3-shop-botanicus"];
-    delete state.completed["d3-shop-manufaktura"];
-    delete state.completed["d3-taxfree-planet"];
-    delete state.completed["d3-wenceslas"];
-    delete state.completed["d4-tour-lobby"];
-    delete state.completed["d4-tour-depart"];
-    delete state.completed["d4-tour-main"];
-    delete state.completed["d4-tour-return"];
-    delete state.completed["d1-dinner-louvre"];
-    delete state.completed["d1-dinner-vytopna"];
-    delete state.completed["d1-dinner-kantyna"];
+    if (!day34SwapAlreadyApplied) {
+      const day3CustomItems = Array.isArray(state.customItems.day3) ? state.customItems.day3 : [];
+      const day4CustomItems = Array.isArray(state.customItems.day4) ? state.customItems.day4 : [];
+      state.customItems.day3 = day4CustomItems;
+      state.customItems.day4 = day3CustomItems;
+
+      const day34BuiltInIds = [
+        "d3-00",
+        "d3-01",
+        "d3-02",
+        "d3-03",
+        "d3-josefov",
+        "d3-lunch-a",
+        "d3-lunch-b-mistral",
+        "d3-lunch-c-gruzie",
+        "d3-mucha",
+        "d3-vysehrad",
+        "d3-basilica",
+        "d3-dancing",
+        "d3-shop-botanicus",
+        "d3-shop-manufaktura",
+        "d3-taxfree-planet",
+        "d3-wenceslas",
+        "d4-tour-lobby",
+        "d4-tour-depart",
+        "d4-tour-main",
+        "d4-tour-return",
+      ];
+      day34BuiltInIds.forEach((id) => {
+        delete state.edits[id];
+        delete state.completed[id];
+      });
+    }
+
+    localStorage.setItem(STORAGE_KEYS.day34SwapMigration, "done");
+
+    ["d1-06", "d1-08", "d2-05", "d2-06", "d2-07", "d2-petrin", "d2-stnicholas", "d2-08"].forEach(
+      (id) => {
+        delete state.edits[id];
+        delete state.completed[id];
+      },
+    );
+
     saveJson(STORAGE_KEYS.edits, state.edits);
     saveJson(STORAGE_KEYS.completed, state.completed);
     saveCustomItems();
